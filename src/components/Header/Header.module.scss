@@ -1,0 +1,17 @@
+@import "./../../assets/scss/variables.scss";
+
+.header {
+  padding: 20px 10px;
+  background: $main-red;
+  color: $main-white;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+  }
+}

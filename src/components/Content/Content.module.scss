@@ -1,0 +1,27 @@
+@import "./../../assets/scss/variables.scss";
+
+.content {
+  background-color: $main-white;
+  width: 100%;
+  max-width: 70%;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+
+  .todo {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid $main-black;
+
+    input:checked + .text {
+      text-decoration: line-through;
+    }
+
+    .text {
+      flex-grow: 1;
+    }
+  }
+}

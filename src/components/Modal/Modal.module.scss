@@ -1,0 +1,18 @@
+@import "./../../assets/scss/variables.scss";
+
+.modal {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid $main-black;
+  box-shadow: 0 0 23px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  width: 30%;
+  z-index: 100;
+  background-color: $main-light;
+}

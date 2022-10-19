@@ -1,0 +1,44 @@
+@import "./../../assets/scss/variables.scss";
+
+.sidebar {
+  background-color: $main-light;
+  width: 100%;
+  max-width: 30%;
+  padding: 16px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $main-black;
+
+  span {
+    font-size: 1.1rem;
+  }
+}
+
+.bottom {
+  a {
+    text-decoration: none;
+    color: $main-black;
+  }
+}
+
+.project {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $main-black;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $main-white;
+  }
+
+  &:active {
+    background-color: $main-black;
+    color: $main-light;
+  }
+}
