@@ -11,16 +11,13 @@ import { Route, Routes, useParams } from "react-router-dom";
 const App = () => {
   const storage = window.localStorage;
 
-  const { category } = useParams();
-  console.log(category);
   const [modal, setModal] = useState(false);
+  const [category, setCategory] = useState("home");
   const [data, setData] = useState(JSON.parse(storage.getItem("todos")) || []); // todos mana shu
 
   useEffect(() => {
     storage.setItem("todos", JSON.stringify(data));
   }, [data, storage]);
-
-  console.log(data);
 
   const todoAdder = (text) => {
     setData([
@@ -28,7 +25,7 @@ const App = () => {
       {
         id: idGenerator(),
         text: text,
-        category: category ? "/" : category,
+        category: category,
         isDone: false,
         time: timeMaker(),
       },
@@ -50,6 +47,12 @@ const App = () => {
     setData(changedData);
   };
 
+  const todoDelete = (id) => {
+    const filteredTodos = data.filter((todo) => todo.id !== id);
+    storage.setItem("todos", JSON.stringify(filteredTodos));
+    setData(filteredTodos);
+  };
+
   return (
     <main className={styles.app}>
       <Header modalOpener={() => setModal(true)} />
@@ -59,7 +62,15 @@ const App = () => {
         <Routes>
           <Route
             path="/:category"
-            element={<Content todos={data} todoEditor={todoEditor} />}
+            index
+            element={
+              <Content
+                todos={data}
+                setCategory={(cat) => setCategory(cat)}
+                todoEditor={todoEditor}
+                deleteTodo={todoDelete}
+              />
+            }
           />
         </Routes>
 
